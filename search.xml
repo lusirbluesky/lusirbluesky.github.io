@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[关于_config.yml文件]]></title>
+    <url>%2F2018%2F01%2F28%2Fhexo_config.yml%2F</url>
+    <content type="text"><![CDATA[主要参数介绍123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172# Hexo Configuration## Docs: https://hexo.io/docs/configuration.html## Source: https://github.com/hexojs/hexo/# Sitetitle: Hexo #网站标题subtitle: #网站副标题description: #网站描述author: John Doe #作者language: #语言timezone: #网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC 。# URL## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'url: http://yoursite.com #你的站点Urlroot: / #站点的根目录permalink: :year/:month/:day/:title/ #文章的 永久链接 格式 permalink_defaults: #永久链接中各部分的默认值# Directory source_dir: source #资源文件夹，这个文件夹用来存放内容public_dir: public #公共文件夹，这个文件夹用于存放生成的站点文件。tag_dir: tags # 标签文件夹 archive_dir: archives #归档文件夹category_dir: categories #分类文件夹code_dir: downloads/code #Include code 文件夹i18n_dir: :lang #国际化（i18n）文件夹skip_render: #跳过指定文件的渲染，您可使用 glob 表达式来匹配路径。 # Writingnew_post_name: :title.md # 新文章的文件名称default_layout: post #预设布局titlecase: false # 把标题转换为 title caseexternal_link: true # 在新标签中打开链接filename_case: 0 #把文件名称转换为 (1) 小写或 (2) 大写render_drafts: false #是否显示草稿post_asset_folder: false #是否启动 Asset 文件夹relative_link: false #把链接改为与根目录的相对位址 future: true #显示未来的文章highlight: #内容中代码块的设置 enable: true line_number: true auto_detect: false tab_replace:# Category &amp; Tagdefault_category: uncategorizedcategory_map: #分类别名tag_map: #标签别名# Date / Time format## Hexo uses Moment.js to parse and display date## You can customize the date format as defined in## http://momentjs.com/docs/#/displaying/format/date_format: YYYY-MM-DD #日期格式time_format: HH:mm:ss #时间格式 # Pagination## Set per_page to 0 to disable paginationper_page: 10 #分页数量pagination_dir: page # Extensions## Plugins: https://hexo.io/plugins/## Themes: https://hexo.io/themes/theme: landscape #主题名称# Deployment## Docs: https://hexo.io/docs/deployment.html# 部署部分的设置deploy: type: #类型，常用的git _config.yml 的YAML语法格式 _config.yml配置官方文档]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo常用命令]]></title>
+    <url>%2F2018%2F01%2F28%2Fhexo%2F</url>
+    <content type="text"><![CDATA[常见命令1234567hexo new "postName" #新建文章hexo new page "pageName" #新建页面hexo generate #生成静态页面至public目录hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）hexo deploy #部署到GitHubhexo help # 查看帮助hexo version #查看Hexo的版本 缩写1234hexo n == hexo newhexo g == hexo generatehexo s == hexo serverhexo d == hexo deploy 组合命令12hexo s -g #生成并本地预览hexo d -g #生成并上传 修改后本地测试已经变化但是提交到github上无变化，请依次执行下面命令 123hexo clean hexo g hexo d 参考Hexo的配置使用]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[zookeeper]]></title>
+    <url>%2F2018%2F01%2F28%2Fzookeeper%2F</url>
+    <content type="text"><![CDATA[zookeeper是什么 一个分布式协调服务的开源框架（抽象/高大上） 一个分布式小文件存储系统（形象具体） 数据存储方式 文件系统目录树 便于对树节点进行有效管理 便于监控维护存储的数据的状态变化，从而达到基于数据的集群管理 统一命名服务 分布式配置管理 分布式消息队列 分布式锁 分布式协调 主要作用 解决分布式集群中应用系统一致性问题（避免同时操作同一数据造成脏读等） 角色与职能 leader 集群工作的核心 事务请求（写操作）的唯一调度者和处理者，保证集群事务处理的顺序性 集群内部各个服务器的调度者 写操作 create setData delete follower 处理客户端非事务请求（读操作），事务请求转发给leader 参与集群leader的选举投票 observer 观察zookeeper集群的最新状态变化并同步 可以独立处理客户端的非事务请求，事务请求转发给leader 不参与任何形式的投票 通常在不影响集群事务处理能力的前提下提升的非事务处理能力 case:某电商项目读压力较大，可以在zk cluster中添加若干台server充当observer，用于水平扩展 特性 全局数据一致性 每个server保存一份相同的数据副本，client连接到哪个server，看到的数据都一致 可靠性 如果消息被其中一台服务器接收，那么将被所有服务器接收 顺序性 全局有序 如果在一台服务器上，消息a在消息b前发布，那么在所有server上都是消息a在消息b前发布 偏序 如果一消息b在消息a之后被同一发送者发布，那么a必将排在b的前面 数据更新的原子性 一次数据更新要么全部成功（半数以上节点成功），要么全部失败，没有中间状态 实时性 zookeeper保证客户端在一定的时间间隔内获得服务器的更新信息或者服务器的失效信息 安装​ 以下是设置服务器的步骤，这些服务器将成为整体的一部分。这些步骤应该在集合中的每个主机上执行： 安装Java JDK。您可以在您的系统上使用本地打包系统，或从以下位置下载JDK： http://java.sun.com/javase/downloads/index.jsp 设置Java堆大小。这是非常重要的，以避免交换，这将严重降低ZooKeeper性能。要确定正确的值，请使用负载测试，并确保您远低于可能导致交换的使用限制。保守 - 对于4GB机器，最大堆大小为3GB。 安装ZooKeeper服务器包。它可以从以下网址下载： http://zookeeper.apache.org/releases.html 创建一个配置文件。这个文件可以被称为任何东西。使用以下设置作为起点： 12345678tickTime = 2000 dataDir = / var / lib / zookeeper / clientPort = 2181 initLimit = 5 syncLimit = 2 server.1 = zoo1：2888：3888 server.2 = zoo2：2888：3888 server.3 = zoo3：2888：3888 您可以在配置参数部分找到这些配置和其他配置设置的含义。一个字虽然在这里几个： 每个属于ZooKeeper集合的机器都应该知道集合中的每一台机器。您可以使用server.id = host：port：port格式的一系列行完成此操作。参数主机和端口是直接的。通过创建一个名为myid的文件（每个服务器驻留在该服务器的数据目录中），将服务器ID分配给每台计算机 ，如配置文件参数dataDir所指定的。 myid文件由一行仅包含该机器ID的文本组成。所以服务器1的myid将包含文本“1”，而不是别的。id在集合中必须是唯一的，并且应该具有1到255之间的值。 如果你的配置文件设置好了，你可以启动一个ZooKeeper服务器： $ java -cp zookeeper.jar：lib / slf4j-api-1.6.1.jar：lib / slf4j-log4j12-1.6.1.jar：lib / log4j-1.2.15.jar：conf \ org.apache.zookeeper。 server.quorum.QuorumPeerMain zoo.cfg QuorumPeerMain启动一个ZooKeeper服务器， JMX 管理bean也被注册，允许通过一个JMX管理控制台进行管理。该ZooKeeper的JMX文件包含有关使用JMX管理ZooKeeper的细节。 有关启动服务器实例的示例，请参阅发行版中包含的脚本bin / zkServer.sh。 通过连接到主机来测试您的部署： 在Java中，您可以运行以下命令来执行简单的操作： $ bin / zkCli.sh -server 127.0.0.1:2181 Apache官方安装说明 安装方式 单机模式 伪集群模式 集群模式 运行模式 单机模式 standalone mode 便于评估、开发和测试 主要用于开发测试环境 集群模式 replicated mode 用于生产环境 一个zookeeper集群的机器数 仲裁集（quorum） 有相同的配置文件副本 至少需要三台服务器，为了更好的容错能力和更大的可靠性可以配置五台 官方强烈推荐基数台 半数以上节点存活才能正常运行 3台服务器和4台服务器的的容灾能力是一样的，所以为了节省服务器资源，一般我们采用奇数个数，作为服务器部署个数 Note As mentioned in the ZooKeeper Getting Started Guide , a minimum of three servers are required for a fault tolerant clustered setup, and it is strongly recommended that you have an odd number of servers. Usually three servers is more than enough for a production install, but for maximum reliability during maintenance, you may wish to install five servers. With three servers, if you perform maintenance on one of them, you are vulnerable to a failure on one of the other two servers during that maintenance. If you have five of them running, you can take one down for maintenance, and know that you’re still OK if one of the other four suddenly fails. Your redundancy considerations should include all aspects of your environment. If you have three ZooKeeper servers, but their network cables are all plugged into the same network switch, then the failure of that switch will take down your entire ensemble. 容错集群设置至少需要三台服务器，强烈建议您有奇数个服务器 通常情况下，对于一个生产环境安装三台服务器足够了，但是在运维期间，为了最大的可靠性，你可能希望安装五台服务器。在三台服务器的集群中，如果你正在其中一台上进行维护操作，在维护期间，你很容易受到其他两台服务器中的一台出现故障的影响。如果有五台服务器正在运行，你可以维护其中一台并且知道如果其他四台中的一台宕机仍然可以正常工作。 你的冗余考虑应该包括所有环境方面的因素。如果你有三台zookeeper服务器，但他们的网络电缆都插进了相同的网络交换机，那么交换机故障会让你的整个集群宕掉。 请重点参阅 其他 主从vs主备 主从：各个节点数据不一致 主备：各个服务器的数据一致，互为副本 数据副本 包括自己 选举机制相关协议ZAB（zookeeper automatic broadcast） ZAB 协议 相关算法 Paxos FastLeaderElection ZooKeeper、Eureka对比 Eureka本身是Netflix开源的一款提供服务注册和发现的产品，并且提供了相应的Java封装。在它的实现中，节点之间相互平等，部分注册中心的节点挂掉也不会对集群造成影响，即使集群只剩一个节点存活，也可以正常提供发现服务。哪怕是所有的服务注册节点都挂了，Eureka Clients（客户端）上也会缓存服务调用的信息。这就保证了我们微服务之间的互相调用足够健壮。 Zookeeper主要为大型分布式计算提供开源的分布式配置服务、同步服务和命名注册。曾经是Hadoop项目中的一个子项目，用来控制集群中的数据，目前已升级为独立的顶级项目。很多场景下也用它作为Service发现服务解决方案。 在分布式系统中有个著名的CAP定理（C-数据一致性；A-服务可用性；P-服务对网络分区故障的容错性，这三个特性在任何分布式系统中不能同时满足，最多同时满足两个）； ZooKeeper基于CP，不保证高可用，如果zookeeper正在选主，或者Zookeeper集群中半数以上机器不可用，那么将无法获得数据。Eureka基于AP，能保证高可用，即使所有机器都挂了，也能拿到本地缓存的数据。作为注册中心，其实配置是不经常变动的，只有发版和机器出故障时会变。对于不经常变动的配置来说，CP是不合适的，而AP在遇到问题时可以用牺牲一致性来保证可用性，既返回旧数据，缓存数据。 所以理论上Eureka是更适合作注册中心。而现实环境中大部分项目可能会使用ZooKeeper，那是因为集群不够大，并且也比基本不会遇到用做注册中心的机器一半以上都挂了的情况。所以实际上也没什么大问题。 参考 原文地址 java葵花宝典]]></content>
+      <categories>
+        <category>tech</category>
+      </categories>
+      <tags>
+        <tag>zookeeper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F01%2F28%2F%E5%89%8D%E7%AB%AF%2FHexo%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>前端</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
