@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "3be6295f"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="bigdata," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="phoenix's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="#hive 安装 自行下载安装包 上传hive-1.2.1.tar.gz包到/export/softwares/目录 解压hive-1.2.1.tar.gz包到/export/servers/目录  1tar -zxvf /export/softwares/hive-1.2.1.tar.gz /export/servers/  安装mysql数据库   推荐yum 在线安装   修改配置文件  1">
+<meta name="keywords" content="bigdata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hive">
+<meta property="og:url" content="http://www.bluedreams.top/2018/03/12/hive/index.html">
+<meta property="og:site_name" content="phoenix&#39;s blog">
+<meta property="og:description" content="#hive 安装 自行下载安装包 上传hive-1.2.1.tar.gz包到/export/softwares/目录 解压hive-1.2.1.tar.gz包到/export/servers/目录  1tar -zxvf /export/softwares/hive-1.2.1.tar.gz /export/servers/  安装mysql数据库   推荐yum 在线安装   修改配置文件  1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-11T22:48:34.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hive">
+<meta name="twitter:description" content="#hive 安装 自行下载安装包 上传hive-1.2.1.tar.gz包到/export/softwares/目录 解压hive-1.2.1.tar.gz包到/export/servers/目录  1tar -zxvf /export/softwares/hive-1.2.1.tar.gz /export/servers/  安装mysql数据库   推荐yum 在线安装   修改配置文件  1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'strongant'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.bluedreams.top/2018/03/12/hive/"/>
+
+
+
+
+
+  <title>hive | phoenix's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8aec9d5d23a296259b96bdbe88c11656";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+		<!--添加github的丝带-->
+		<a href="https://lusirbluesky.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	</div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">phoenix's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">In the future you will appreciate your desperate effort now</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bluedreams.top/2018/03/12/hive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="phoenix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hz-avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="phoenix's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hive</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T06:55:10+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bigdata/" itemprop="url" rel="index">
+                    <span itemprop="name">bigdata</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/03/12/hive/" class="leancloud_visitors" data-flag-title="hive">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6,615
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  30
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#hive</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>自行下载安装包</li>
+<li>上传<strong>hive-1.2.1.tar.gz</strong>包到<strong>/export/softwares/</strong>目录</li>
+<li>解压<strong>hive-1.2.1.tar.gz</strong>包到<strong>/export/servers/</strong>目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf /export/softwares/hive-1.2.1.tar.gz /export/servers/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装mysql数据库</li>
+</ul>
+<blockquote>
+<p>推荐yum 在线安装</p>
+</blockquote>
+<ul>
+<li>修改配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置HIVE_HOME环境变量</span></span><br><span class="line">vi conf/hive-env.sh </span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置其中的<span class="variable">$hadoop_home</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Set HADOOP_HOME to point to a specific hadoop install directory</span></span><br><span class="line">export HADOOP_HOME=/export/servers/hadoop</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置元数据库信息</span></span><br><span class="line">vi  conf/hive-site.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--添加如下内容：--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://localhost:3306/hive?createDatabaseIfNotExist=true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>JDBC connect string for a JDBC metastore<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>Driver class name for a JDBC metastore<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>root<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>username to use against metastore database<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">value</span>&gt;</span>sql<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">description</span>&gt;</span>password to use against metastore database<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>安装hive和mysql完成后，将mysql的连接jar包拷贝到$HIVE_HOME/lib目录下，如果出现没有权限的问题，在mysql授权(在安装mysql的机器上执行)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line">#(执行下面的语句 *.*:所有库下的所有表%：任何IP地址或主机都可以连接)</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;root&apos; WITH GRANT OPTION;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Jline包版本不一致的问题</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 需要拷贝hive的lib目录中jline.2.12.jar的jar包替换掉hadoop中的</span></span><br><span class="line">/export/servers/hadoop/share/hadoop/yarn/lib/jline-0.9.94.jar</span><br></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ul>
+<li>hive交互shell</li>
+</ul>
+<blockquote>
+<p>bin/hive</p>
+</blockquote>
+<ul>
+<li>hive JDBC服务(参考java jdbc连接mysql)</li>
+<li>hive启动为一个服务器，来对外提供服务</li>
+</ul>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#启动hiveserver2</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 前台启动</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> bin/hiveserver2</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 后台启动</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> nohup bin/hiveserver2 1&gt;/var/<span class="built_in">log</span>/hiveserver.log 2&gt;/var/<span class="built_in">log</span>/hiveserver.err &amp;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># beeline连接</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 启动成功后，可以在别的节点上用beeline去连接</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> bin/beeline -u jdbc:hive2://node01:10000 -n root</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#或者</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> bin/beeline ! connect jdbc:hive2://node01:10000</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 用户名密码为hiveserver2所在节点的linux用户名密码</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 如果不做特别权限配置，只需要输入用户名，密码直接回车即可</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>hive命令</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在linux环境下执行hive sql语句，执行完成回到linux环境</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> hive -e <span class="string">'sql'</span></span></span><br><span class="line">bin/hive -e 'select * from t_test'</span><br></pre></td></tr></table></figure>
+<p><strong>提示：hive的使用依赖hadoop环境，所以要启动hdfs和yarn</strong></p>
+<p>##hive基本操作</p>
+<p>###DDL操作</p>
+<p>sql</p>
+<p>创建表加载数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#数据文件user.txt</span><br><span class="line">#1	tom	21</span><br><span class="line">#2	david	23</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建数据库lusir</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> lusir;</span><br><span class="line"><span class="keyword">use</span> lusir;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建数据表t_user</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_user(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>,age <span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\t'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">上传到对应的数据表下建立映射关系</span></span><br><span class="line">hadoop fs -put /root/data/user.txt /user/hive/warehouse/lusir.db/t_user</span><br><span class="line"><span class="meta">#</span><span class="bash">或者通过加载数据</span></span><br><span class="line">load data local inpath '/root/data/user.txt'</span><br><span class="line">[overwrite] into table t_user;</span><br><span class="line"><span class="meta">#</span><span class="bash">查询</span></span><br><span class="line">select * from t_user;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--jerry	beijing,tianjin</span></span><br><span class="line"><span class="comment">--tom	shanghai,nanjing</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> complex_array(<span class="keyword">name</span> <span class="keyword">string</span>,work_locations <span class="built_in">array</span>&lt;<span class="keyword">string</span>&gt;)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="string">'\t'</span></span><br><span class="line">collection items <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--1,zhangsan,唱歌:非常喜欢-跳舞:喜欢-游泳:一般般</span></span><br><span class="line"><span class="comment">--2,lisi,打游戏:非常喜欢-篮球:不喜欢</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_map(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>,hobby <span class="keyword">map</span>&lt;<span class="keyword">string</span>,<span class="keyword">string</span>&gt;)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> </span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span></span><br><span class="line">collection items <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'-'</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">keys</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">':'</span> ;</span><br></pre></td></tr></table></figure>
+<p>创建分区表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建分区表</span></span><br><span class="line"><span class="comment">--单分区</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_user(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>)</span><br><span class="line">partitioned <span class="keyword">by</span> (country <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;、</span><br><span class="line"><span class="comment">--注释：分区字段不能和表中实际字段重名，否则报错</span></span><br><span class="line"><span class="comment">--FAILED: SemanticException [Error 10035]: Column repeated in partitioning columns</span></span><br><span class="line"><span class="comment">--加载本地数据</span></span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/data/partition.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> t_user <span class="keyword">partition</span>(country=<span class="string">'china'</span>);</span><br><span class="line"><span class="comment">--注释：加载本地数据时，数据文件必须在hiveserver2所在节点的本地存在</span></span><br><span class="line"><span class="comment">--注释：hdfs上对应的数据库文件夹下的新文件夹为country=china</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查看表信息</span></span><br><span class="line">desc t_users;</span><br><span class="line"><span class="keyword">describe</span> t_users;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建分区表</span></span><br><span class="line"><span class="comment">--双分区</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> day_hour_table(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>)</span><br><span class="line">partitioned <span class="keyword">by</span> (dt <span class="keyword">string</span>,<span class="keyword">hour</span> <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"><span class="comment">--加载(hdfs数据)</span></span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> inpath <span class="string">'/hivedata/double.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> day_hour_table <span class="keyword">partition</span>(dt=<span class="string">'2018-02-26'</span>,<span class="keyword">hour</span>=<span class="string">'14'</span>);</span><br><span class="line"><span class="comment">--查看分区表的分区信息</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">partitions</span> day_hour_table;</span><br><span class="line"><span class="comment">--查看非分区表的分区信息（报错）</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">partitions</span> ttt;</span><br></pre></td></tr></table></figure>
+<p>创建分桶表</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">指定开启分桶</span></span><br><span class="line">set hive.enforce.bucketing = true;</span><br><span class="line">set mapreduce.job.reduces=4;</span><br><span class="line"><span class="meta">#</span><span class="bash">默认值<span class="built_in">set</span> mapreduce.job.reduces=-1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">set</span> mapreduce.job.reduces与mapreduce的reducetask的个数（分区数）相同</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建分桶表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu_buck(Sno <span class="built_in">int</span>,Sname <span class="keyword">string</span>,Sex <span class="keyword">string</span>,Sage <span class="built_in">int</span>,Sdept <span class="keyword">string</span>)</span><br><span class="line">clustered <span class="keyword">by</span>(Sno)</span><br><span class="line"><span class="comment">--sorted by(Sno DESC)</span></span><br><span class="line"><span class="keyword">into</span> <span class="number">4</span> buckets</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"><span class="comment">--加载数据不会分桶（数据展现就像普通表）</span></span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/data/buck.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> stu_buck;</span><br><span class="line"><span class="comment">--分桶表导入数据</span></span><br><span class="line"><span class="comment">--借助导入另一张表数据</span></span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> stu_buck</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student cluster <span class="keyword">by</span>(Sno);</span><br><span class="line"><span class="comment">--直接导入自身数据</span></span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> stu_buck</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> stu_buck cluster <span class="keyword">by</span>(Sno);</span><br></pre></td></tr></table></figure>
+<p>内部表<strong>vs</strong>外部表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--建内部表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student(Sno <span class="built_in">int</span>,Sname <span class="keyword">string</span>,Sex <span class="keyword">string</span>,Sage <span class="built_in">int</span>,Sdept <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"><span class="comment">--建外部表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> student_ext(Sno <span class="built_in">int</span>,Sname <span class="keyword">string</span>,Sex <span class="keyword">string</span>,Sage <span class="built_in">int</span>,Sdept <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span> location <span class="string">'/stu'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--内、外部表加载数据：</span></span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hivedata/students.txt'</span> overwrite <span class="keyword">into</span> <span class="keyword">table</span> student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> inpath <span class="string">'/stu'</span> <span class="keyword">into</span> <span class="keyword">table</span> student_ext;</span><br></pre></td></tr></table></figure>
+<p>like创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--LIKE 允许用户复制现有的表结构，但是不复制数据</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> like_tbl <span class="keyword">like</span> t_user;</span><br></pre></td></tr></table></figure>
+<p>###DML操作</p>
+<p>insert查询语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--多重插入：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> source_table (<span class="keyword">id</span> <span class="built_in">int</span>, <span class="keyword">name</span> <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test_insert1 (<span class="keyword">id</span> <span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test_insert2 (<span class="keyword">name</span> <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span>;</span><br><span class="line"></span><br><span class="line">from source_table</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> test_insert1</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">id</span></span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> test_insert2</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>;</span><br></pre></td></tr></table></figure>
+<p>动态分区插入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">是否开启动态分区功能，默认<span class="literal">false</span>关闭。</span></span><br><span class="line">set hive.exec.dynamic.partition=true;</span><br><span class="line"><span class="meta">#</span><span class="bash">动态分区的模式，默认strict，表示必须指定至少一个分区为静态分区<span class="comment">#nonstrict模式表示允许所有的分区字段都可以使用动态分区。</span></span></span><br><span class="line">set hive.exec.dynamic.partition.mode=nonstrict;</span><br></pre></td></tr></table></figure>
+<p>需求：<br>将dynamic_partition_table中的数据按照时间(day)，插入到目标表d_p_t的相应分区中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#dynamic_partition_table.txt</span><br><span class="line">2015-05-10,ip1</span><br><span class="line">2015-05-10,ip2</span><br><span class="line">2015-06-14,ip3</span><br><span class="line">2015-06-14,ip4</span><br><span class="line">2015-06-15,ip1</span><br><span class="line">2015-06-15,ip2</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--原始表：</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> dynamic_partition_table(<span class="keyword">day</span> <span class="keyword">string</span>,ip <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line"><span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">","</span>;</span><br><span class="line"><span class="comment">--加载数据</span></span><br><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/hivedata/dynamic_partition_table.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> dynamic_partition_table;</span><br><span class="line"></span><br><span class="line"><span class="comment">--目标表：</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> d_p_t(ip <span class="keyword">string</span>) partitioned <span class="keyword">by</span> (<span class="keyword">month</span> <span class="keyword">string</span>,<span class="keyword">day</span> <span class="keyword">string</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">--动态插入：</span></span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> d_p_t <span class="keyword">partition</span> (<span class="keyword">month</span>,<span class="keyword">day</span>) </span><br><span class="line"><span class="keyword">select</span> ip,<span class="keyword">substr</span>(<span class="keyword">day</span>,<span class="number">1</span>,<span class="number">7</span>) <span class="keyword">as</span> <span class="keyword">month</span>,<span class="keyword">day</span> </span><br><span class="line"><span class="keyword">from</span> dynamic_partition_table;</span><br><span class="line"><span class="comment">--动态分区是通过位置来对应分区值的。原始表select 出来的值和输出partition的值的关系仅仅是通过位置来确定的，和名字并没有关系。</span></span><br></pre></td></tr></table></figure>
+<p>查询结果导出到文件系统</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--将查询结果保存到指定的文件目录（可以是本地，也可以是hdfs）</span></span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">local</span> <span class="keyword">directory</span> <span class="string">'/home/hadoop/test'</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_p;</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">directory</span> <span class="string">'/aaa/test'</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_p;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小结</p>
+<p><strong>hive</strong>数据存储在<strong>hdfs</strong>的<strong>/user/hive/warehouse</strong>路径下</p>
+<p>请注意查看hive-site.xml中的配置</p>
+<p>数据库，数据表，分区，分桶在hdfs中以文件夹的形式存在，数据以文件的形式存在</p>
+<p>元数据默认存储在内置的derby数据库中，在哪个路径下启动hive都会产生一份元数据，带来了很多不便。为了解决这种问题，用mysql中永久保存元数据信息，以免每次启动hive都要重新创建。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 默认数据库路径（default数据库）</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /user/hive/warehouse/</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 自建数据库路径</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /user/hive/warehouse/lusir.db</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 自建数据库路径下的表</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /user/hive/warehouse/lusir.db/<span class="built_in">test</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 自建数据库路径下的表下的数据文件（0,1或多个文件）</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /user/hive/warehouse/lusir.db/<span class="built_in">test</span>/data.txt</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>hive中的表实际上是hdfs中指定路径下的数据文件中的结构化数据与mysql中的元数据信息映射之后的结果</strong></p>
+<p>完美产生映射的必要条件</p>
+<ul>
+<li>表的字段个数和类型跟结构化数据中的字段个数和类型一致</li>
+<li>在建表的时候指定本次映射的结构化数据中的分隔符是什么</li>
+</ul>
+<blockquote>
+<p>默认分隔符<strong>“\001”</strong>，在数据文件直接手动敲出无效，要在vim编辑环境下用ctrl+v然后ctrl+a得到<strong>^A</strong>即为默认分隔符。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> &gt; <span class="comment">#指定分隔符</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> &gt; <span class="comment">#指定分隔符为\t</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> &gt; row format delimited fields terminated by <span class="string">'\t'</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> &gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>后续所有针对结构化数据的操作分析，转化成了对这个hive中表的分析</p>
+<p>sql由hive帮我们转化成了MapReduce程序</p>
+<p>分区</p>
+<ul>
+<li>hive中的分区字段不能够是表当中已经存在的字段</li>
+<li>分区的字段是个虚拟的字段不存放任何数据</li>
+<li>它的值来自于你装载分区表数据的时候指定的</li>
+<li>它的效果就是在表的文件夹下面又创建了子文件夹</li>
+<li>目的：进一步划分数据，避免查询对全表扫描（只扫描指定的分区即可）即提高查询效率</li>
+</ul>
+<p>分桶</p>
+<ul>
+<li>分桶操作之前需要手动开启分桶的功能同时指定分为几个桶</li>
+<li>hive中的分桶（分簇）字段必须是表当中已经存在的字段</li>
+<li>针对分桶表的数据导入：<figure class="highlight plain"><figcaption><span>data ```的方式不行，原因在于load数据本质相当于由hive帮你去```hadoop fs -put xxx数据文件```这没有执行**MR**程序，不会分桶</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; - 分桶表的数据插入要使用 insert+select方式：插入的数据来自于查询语句，本质是分桶一定要执行**MR**程序，对应**MR**中Partitioner</span><br><span class="line">&gt; - 默认分桶规则按照你指定的分桶字段**模除以**（%）设置的分桶个数</span><br><span class="line">&gt;</span><br><span class="line">&gt; ```shell</span><br><span class="line">&gt;  set mapreduce.job.reduces=？</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li>分桶虽然也是针对数据进行更加细致化的划分，但是更多的是用来（Map端连接操作）<strong>提高多表之间的join查询效率</strong></li>
+<li><strong>需要join的字段在各自表中进行分桶</strong></li>
+<li>避免了全表笛卡尔积，可以直接匹配，所以更加高效</li>
+</ul>
+<p>在数据量足够大的情况下，分桶比分区更高的查询效率</p>
+<blockquote>
+<p>索引分区分桶小结</p>
+<p><strong>索引和分区最大的区别就是索引不分割数据库，分区分割数据库。</strong></p>
+<p>索引其实就是拿额外的存储空间换查询时间，但分区已经将整个大数据库按照分区列拆分成多个小数据库了。</p>
+<p><strong>分区和分桶最大的区别就是分桶随机分割数据库，分区是非随机分割数据库。</strong></p>
+<p>因为分桶是按照列的哈希函数进行分割的，相对比较平均；而分区是按照列的值来进行分割的，容易造成数据倾斜。</p>
+<p>其次两者的另一个区别就是分桶是对应不同的文件（细粒度），分区是对应不同的文件夹（粗粒度）。</p>
+<p>注意：普通表（外部表、内部表）、分区表这三个都是对应HDFS上的目录，桶表对应是目录里的文件</p>
+<p><strong>推荐大家学习的时候HIVE、HDFS、MYSQL三者结合一起看，更容易理解其中的原理。</strong></p>
+<p><a href="https://www.cnblogs.com/LiCheng-/p/7420888.html" target="_blank" rel="noopener">HIVE-索引、分区和分桶的区别</a></p>
+</blockquote>
+<p><strong>hive中的表名和字段名对大小写不敏感</strong></p>
+<p><strong>hive中类sql语句要以分号标识一个语句的结束</strong></p>
+<p>加载本地数据时，数据文件必须在hiveserver2所在节点的本地存在</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; load data local inpath '' into table tablename</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>加载集群数据，节点必须开启hiveserver2且能够访问hdfs集群且hdfs指定路径存在对应的数据文件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; load data inpath '' into table tablename</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>分区表是在目录级别进行划分</strong></p>
+<p><strong>分桶表是在文件级别进行划分</strong></p>
+<p>分区用于创建表，加载表，插入表</p>
+<p>分桶用于创建表，查询表</p>
+<p>加载数据注意：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#使用local会将数据文件复制到hdfs的hive对应数据表</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> load data <span class="built_in">local</span> inpath <span class="string">'/root/data/1.txt'</span> into table tt;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#不用local而直接加载hdfs数据会将数据文件移动到hive对应数据表</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#当映射路径既有文件又有文件夹时，文件会全部映射到hive对应表中，文件夹如果为空会报错</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> load data inpath <span class="string">'/hive/'</span> overwrite into table tt;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>hive命令行中可执行hive sql命令，hdfs命令和linux shell命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; --hive中执行hdfs命令</span><br><span class="line">&gt; dfs -ls /</span><br><span class="line">&gt; --hive中执行linux shell命令</span><br><span class="line">&gt; !ls /root/</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>hive加载数据时不做类型检查，查询时检查</p>
+<p>hive中select查询插入数据注意字段位置</p>
+<p>外部分区表需要先添加分区才能看到数据</p>
+<p><strong>导出数据</strong></p>
+<p>导出路径不存在自动创建<br>数据导出到本地支持指定分隔符<br>数据导出到hdfs不支持指定分隔符</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; --数据导出到本地</span><br><span class="line">&gt; insert into|overwrite local directory '/root/data/'</span><br><span class="line">&gt; row format delimited fields terminated by '\t'</span><br><span class="line">&gt; select name,addr</span><br><span class="line">&gt; from test;</span><br><span class="line">&gt; --数据导出到hdfs</span><br><span class="line">&gt; insert into|overwrite directory '/hdfs/data/'</span><br><span class="line">&gt; select name,addr</span><br><span class="line">&gt; from test;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#hadoop命令导出数据</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hadoop fs -get</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hadoop fs -text </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#shell命令加管道</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#第三方工具Sqoop导出数据到本地</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>一个表一天产生的分区数最好不要太多</p>
+<p>动态分区</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; #是否开启动态分区功能，默认false关闭。</span><br><span class="line">&gt; set hive.exec.dynamic.partition=true;</span><br><span class="line">&gt; #动态分区的模式，默认strict，表示必须指定至少一个分区为静态分区#nonstrict模式表示允许所有的分区字段都可以使用动态分区。</span><br><span class="line">&gt; set hive.exec.dynamic.partition.mode=nonstrict;</span><br><span class="line">&gt;</span><br><span class="line">&gt; create table t_part(name string)</span><br><span class="line">&gt; partitioned by (val String)</span><br><span class="line">&gt; row format delimited</span><br><span class="line">&gt; fields terminated by '\t'</span><br><span class="line">&gt; lines terminated '\n'</span><br><span class="line">&gt; stored as teextfile;</span><br><span class="line">&gt;</span><br><span class="line">&gt; insert overwrite table t_part partition(val)</span><br><span class="line">&gt; select name,addr as val</span><br><span class="line">&gt; from test;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; alter table test rename to newtable;</span><br><span class="line">&gt; alter table test change column c1 c2 int comment '年龄';</span><br><span class="line">&gt; alter table test add columns (c1 string comment '',c2 long comment '');</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>hive不支持union，支持union all</p>
+<p><strong>count(*)&amp;count(1)</strong></p>
+<blockquote>
+<p>count(*)当该记录的所有值都不为NULL才计数，都为NULL不计数</p>
+<p>count(1)不管记录中是否有NULL，都计数</p>
+</blockquote>
+<p>但是，<a href="https://my.oschina.net/rathan/blog/608617" target="_blank" rel="noopener">HQL中count(*),count(1),count(column)的区别</a>一文中写的却不同，该文结论如下：</p>
+<blockquote>
+<p>count(*)：所有行进行统计，包括NULL行</p>
+<p>count(1)：所有行进行统计，包括NULL行</p>
+<p>count(column)：对column中非Null进行统计</p>
+<p>count(distinct column)：对column中非Null进行去重统计</p>
+</blockquote>
+<p>where语句是在map阶段执行</p>
+<p>一般不在大数据中使用order by，将数据处理完成后，导出到关系型数据库，在关系型数据库中使用order by</p>
+<p>select后面的非聚合列必须出现在group by中，否则报错</p>
+<p>having是在reduce端执行的，在reduce端执行完聚合操作之后进行的</p>
+<p>优化group by参数：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; --开启两个job</span><br><span class="line">&gt; set hive.groupby.skewindata=true;</span><br><span class="line">&gt; --数据倾斜优化</span><br><span class="line">&gt; set mapred.reduce.tasks=5;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>执行join时存在数据倾斜，设置优化参数：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; set hive.optimize.skewjoin=true;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>一般的join操作是在reduce端进行join的，mapjoin是一种优化操作，在map端进行join操作，优化join的查询。</p>
+<blockquote>
+<p>什么是mapjoin？</p>
+<ul>
+<li>在map端把小表加载到内存，然后读取大表再和内存中的小表进行连接操作</li>
+<li>使用了分布式缓存技术</li>
+</ul>
+<p>mapjoin的优缺点？</p>
+<blockquote>
+<p>优点：</p>
+<ul>
+<li>不消耗集群的reduce资源（reduce相对紧缺时）</li>
+<li>减少reduce操作，加快程序执行</li>
+<li>降低网络负载</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>占用部分内存，所以加载到内存中的表不能过大，因为每个计算节点都会加载一次（最好几M到几十M）</li>
+<li>生成较多的小文件（与Map的任务数有关）</li>
+</ul>
+</blockquote>
+<p>使用mapjoin的参数设置？</p>
+<ul>
+<li>配置参数，hive根据sql自动选择使用commonjoin或mapjoin</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; --Whether Hive enables the optimization about converting common join into mapjoin based on the input file size. (Note that hive-default.xml.template incorrectly gives the default as false in Hive 0.11.0 through 0.13.1.)</span><br><span class="line">&gt; &gt; set hive.auto.convert.join=true;</span><br><span class="line">&gt; &gt; --Default Value: 25000000</span><br><span class="line">&gt; &gt; --The threshold (in bytes) for the input file size of the small tables; if the file size is smaller than this threshold, it will try to convert the common join into map join.</span><br><span class="line">&gt; &gt; hive.mapjoin.smalltable.filesize=25mb</span><br><span class="line">&gt; &gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li>手动指定使用map join</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; select /*+mapjoin(n)*/m.col,m.col2,n.col3</span><br><span class="line">&gt; &gt; from m join n on m.col=n.col;</span><br><span class="line">&gt; &gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>map join的使用场景？</p>
+<ul>
+<li>关联操作中有一张表非常小</li>
+<li>不等值的连接操作</li>
+</ul>
+</blockquote>
+<p>分桶操作的好处？</p>
+<ul>
+<li><p>存在join查询时更高效</p>
+</li>
+<li><p>取样更高效</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;   --分桶查询参数设置</span><br><span class="line">&gt;</span><br><span class="line">&gt;   --分桶取样</span><br><span class="line">&gt;   select * from bucket_user</span><br><span class="line">&gt;   tablesample(bucket 1 out of 2 on id);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;<br>&gt;</p>
+<blockquote>
+<p><strong>distribute by 和sort by</strong></p>
+<ul>
+<li>distribute分散数据</li>
+</ul>
+<blockquote>
+<p>distribute by col</p>
+<p>按照col列把数据分散到不同的reduce</p>
+</blockquote>
+<ul>
+<li>sort排序</li>
+</ul>
+<blockquote>
+<p>sort by col</p>
+<p>按照col列把数据排序</p>
+</blockquote>
+<ul>
+<li>两者结合使用可以确保每个reduce的输出都是有序的，但不保证全局的有序性</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; select col1,col2 from m</span><br><span class="line">&gt; distribute by col1</span><br><span class="line">&gt; sort by col1 asc,col2 desc;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><strong>distribute by与group by</strong></p>
+<ul>
+<li><p>都是按照key划分数据</p>
+</li>
+<li><p>都使用了reduce操作</p>
+</li>
+<li><p>唯一的区别：</p>
+<blockquote>
+<p>distribute by单纯的分散数据</p>
+<p>group by把相同key的数据聚集到一起，后续必须是聚合操作</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>order by和sort by</strong></p>
+<ul>
+<li>order by是全局排序</li>
+<li>sort by只确保每个reduce上输出的数据有序，如果只有一个reduce，那就和order by作用一样</li>
+</ul>
+<p><strong>distribute by和sort by的应用场景</strong></p>
+<ul>
+<li>map输出的文件大小不均</li>
+<li>reduce输出的文件大小不均</li>
+<li>小文件过多</li>
+<li>文件超大</li>
+</ul>
+<p>hive只支持<strong>union all</strong>不支持<strong>union</strong></p>
+<p><strong>union all使用注意：</strong></p>
+<ul>
+<li>union all连接的子表不允许有别名</li>
+<li>合并字段的名字、类型、字段个数要一样</li>
+<li>如果要从合并后的表中查数据，那合并的表必须有别名</li>
+</ul>
+<p><strong>一般的子查询需要别名</strong></p>
+<p><strong>union all执行比较快，只有map任务，没有reduce任务</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; --UDTF</span><br><span class="line">&gt; --一列转多行</span><br><span class="line">&gt; select id,adid</span><br><span class="line">&gt; from winfunc</span><br><span class="line">&gt; lateral view explode(split(type,'B')) tt as adid;</span><br><span class="line">&gt; --explode(array或map)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>正则表达式的贪婪匹配及防止贪婪匹配</p>
+<p>UDF：用户自定义函数</p>
+<blockquote>
+<p>针对单条记录</p>
+<p>创建函数</p>
+<ul>
+<li>自定义一个java类</li>
+<li>继承UDF类</li>
+<li>重写evaluate方法</li>
+<li>打jar包</li>
+<li>hive执行add jar</li>
+<li>hive执行创建模板函数</li>
+<li>hql中使用</li>
+</ul>
+</blockquote>
+<p>UDAF：用户自定义聚合函数</p>
+<blockquote>
+<p>自定义实现两步走：</p>
+<ul>
+<li>编写resolver类进行类型检查和操作符重载</li>
+<li>编写evaluator类实现UDAF的逻辑</li>
+</ul>
+<p>mode表示了UDAF在mapreduce的各个阶段</p>
+<ul>
+<li>partial1（map）</li>
+<li>partial2（combiner）</li>
+<li>final（reduce）</li>
+<li>complete（只有map没有reduce时执行）</li>
+</ul>
+<p>理解了mode的含义就理解了hive的UDAF运行流程</p>
+<p>mapreduce阶段调用函数</p>
+<ul>
+<li>map</li>
+</ul>
+<blockquote>
+<p>init()、iterate()、terminatePartial()</p>
+</blockquote>
+<ul>
+<li>combiner</li>
+</ul>
+<blockquote>
+<p>merge()、terminatePartial()</p>
+</blockquote>
+<ul>
+<li>reduce</li>
+</ul>
+<blockquote>
+<p>init()、merge()、terminate()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>##Hive SQL优化</p>
+<blockquote>
+<p>hive优化分为：</p>
+<blockquote>
+<p>表优化</p>
+<p>sql优化</p>
+<p>job优化</p>
+<p>map优化</p>
+<p>shuffle优化</p>
+<p>reduce优化</p>
+</blockquote>
+<p>1.对于oracle等关系型数据库中的sql语句，既有join on又有where时，它会自动优化先执行where中的条件过滤之后再执行join on关联其他表；但是hive不同，<strong>hive会先执行join on关联表然后再执行where条件</strong></p>
+<p>2.对于数据量比较大的情况下，count(distinct)优化</p>
+<p>优化前：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; --执行一个job</span><br><span class="line">&gt; select count(distinct id) from tablename;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>优化后：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; --执行两个job</span><br><span class="line">&gt; select count(1) from (select distinct id from tablename) tmp;</span><br><span class="line">&gt; --或</span><br><span class="line">&gt; select count(1) from (select id from tablename group by id) tmp;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>3.</p>
+<p>优化前</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; select a,sum(b),count(distinct c),count(distinct d) from test group by a;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>优化后</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; select a,sum(b) as b,count(c) as c,count(d) as d from (</span><br><span class="line">&gt; 	select a,0 as b,c,null as d from test</span><br><span class="line">&gt; 	group by a,d</span><br><span class="line">&gt; 	union all</span><br><span class="line">&gt; 	select a,0 as b,null as c,d from test </span><br><span class="line">&gt; 	group by a,c</span><br><span class="line">&gt; 	union all</span><br><span class="line">&gt; 	select a,b,null as c,null as d from test</span><br><span class="line">&gt; ) tmp</span><br><span class="line">&gt; group by a;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>4.Hive的优化目标</p>
+<p>在有限的资源下高效执行。</p>
+<blockquote>
+<p>常见问题</p>
+<ul>
+<li>数据倾斜</li>
+<li>Map数设置</li>
+<li>Reduce数设置</li>
+<li>其他</li>
+</ul>
+</blockquote>
+<p>5.explain extended sql可以查看该hive sql的执行语法树，有几个stage，map阶段，reduce阶段，map阶段扫描的哪些数据等</p>
+<p>6.job优化</p>
+<p>压缩优化</p>
+<p>压缩效果好的占用磁盘空间小，但是会消耗更多的CPU时间</p>
+<p>对于中间job结果，选择轻度压缩(SnappyCodec)，最终结果可以选择重度压缩(GzipCodec)，压缩类型一般为block</p>
+<p>7.map优化</p>
+<p>文件大小太大，设置参数</p>
+<p>小文件数量过多，设置参数在map阶段合并小文件</p>
+<p>map端聚合即combiner</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; set hive.exec.aggr=true;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>推测执行</p>
+<p>shuffle优化配置参数（溢出比，压缩）</p>
+<p>reduce优化</p>
+<blockquote>
+<p>需要reduce操作的查询</p>
+<ul>
+<li>聚合函数</li>
+</ul>
+<blockquote>
+<p>sum,count,distinct…</p>
+</blockquote>
+<ul>
+<li>高级查询</li>
+</ul>
+<blockquote>
+<p>group by,join,distribute by,cluster by…</p>
+<p>order by比较特殊，只需一个reduce</p>
+</blockquote>
+</blockquote>
+<p>开启推测执行参数</p>
+</blockquote>
+<p>##hive中的哪些SQL会执行MR?</p>
+<p>##hive多表查询的条件写在join里好还是用子查询？</p>
+<blockquote>
+<p>两个表关联查询，是把条件都写join on里好？<br>select a.<em> from a join b on ( a.id = b.id and a.a = 2 and b.c = 3)<br>还是写成子查询的形式比较快？<br>select a.</em> from a join (select b.* from b where b.c = 3) c on (a.id = c.id) where a.a = 2</p>
+<p>或者hive其实两种形式都会优化，所以速度差不多？</p>
+<p>分情况吧。</p>
+<p>1、如果不存在数据倾斜，应该是第一种，从执行逻辑计划来看，这种方式会在reduce时候过滤掉不满足on 条件中的数据，而第二种方式在join之前会有一次数据读取处理过程，多一次磁盘IO过程，因此第一种方式时间短一些</p>
+<p>2、若是join的两张表在关联时因笛卡儿积产生数据倾斜，第一种方式处理时间估计就比较久了，on条件过滤也是挽救不了，需要采取其他的方式进行优化</p>
+<p>HQL编写时为了处理数据，在了解数据的基础上对语句优化更有方向</p>
+</blockquote>
+<p>##创建一个分区且排序的表(???????????????)</p>
+<blockquote>
+<p>create table stu_buck(Sno int,Sname string,Sex string,Sage int,Sdept string)<br>partitioned by (dt string,country string)<br>clustered by(Sno) into 3 buckets<br>row format delimited<br>fields terminated by ‘,’;</p>
+<p>load data inpath ‘/hive0227/students.txt’ overwrite into table stu_buck partition(dt=’2018-02-27’,country=”china”);</p>
+<p>insert overwrite table stu_buck partition(dt=’2018-02-27’,country=”china”)<br>select * from stu_buck;</p>
+<p>==================<br>create table stu_buck1(Sno int,Sname string,Sex string,Sage int,Sdept string)<br>partitioned by (dt string,country string)<br>clustered by(Sno) into 3 buckets<br>row format delimited<br>fields terminated by ‘,’;</p>
+<p>insert overwrite table stu_buck1 partition(dt=’2018-02-27’,country=”china”)<br>select Sno,Sname,Sex,Sage,Sdept from stu_buck;<br>最终生成1个文件（只有map阶段）</p>
+<p>insert overwrite table stu_buck1 partition(dt=’2018-02-27’,country=”china”)<br>select Sno,Sname,Sex,Sage,Sdept from stu_buck cluster by(sno);<br>最终生成三个文件（两个阶段（一次mapreduce+一次mapreduce））<br>两个阶段的maptask数与reducetask数不一样</p>
+<p>select * from stu_buck1 tablesample(bucket 1 out of 3 on sno);</p>
+<p>set mapreduce.job.reduces=3;<br>insert overwrite table stu_buck1 partition(dt=’2018-02-27’,country=”china”)<br>select Sno,Sname,Sex,Sage,Sdept from stu_buck cluster by(sno);<br>最终生成三个文件（两个阶段（一次mapreduce+一次mapreduce））<br>两个阶段的maptask数与reducetask数不一样</p>
+<p>set mapreduce.job.reduces=2;<br>insert overwrite table stu_buck1 partition(dt=’2018-02-27’,country=”china”)<br>select Sno,Sname,Sex,Sage,Sdept from stu_buck cluster by(sno);<br>最终生成三个文件（两个阶段（一次mapreduce+一次mapreduce））<br>两个阶段的maptask数与reducetask数不一样</p>
+</blockquote>
+<p>在hive命令行查看hdfs上的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">hive通过dfs命令查看hdfs文件</span></span><br><span class="line">0: jdbc:hive2://node01:10000&gt; dfs -ls /;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0: jdbc:hive2://node01:10000&gt; dfs -ls /user/hive/warehouse/itheima.db/stu_buck1/dt=2018-02-27/country=china;</span><br><span class="line">+--------------------------------------------------------------------------------------------------------------------------------------------+--+</span><br><span class="line">|                                                                 DFS Output                                                                 |</span><br><span class="line">+--------------------------------------------------------------------------------------------------------------------------------------------+--+</span><br><span class="line">| Found 3 items                                                                                                                              |</span><br><span class="line">| -rwxr-xr-x   2 root supergroup        193 2018-02-27 08:12 /user/hive/warehouse/itheima.db/stu_buck1/dt=2018-02-27/country=china/000000_0  |</span><br><span class="line">| -rwxr-xr-x   2 root supergroup        170 2018-02-27 08:12 /user/hive/warehouse/itheima.db/stu_buck1/dt=2018-02-27/country=china/000001_0  |</span><br><span class="line">| -rwxr-xr-x   2 root supergroup        164 2018-02-27 08:12 /user/hive/warehouse/itheima.db/stu_buck1/dt=2018-02-27/country=china/000002_0  |</span><br><span class="line">+--------------------------------------------------------------------------------------------------------------------------------------------+--+</span><br><span class="line">4 rows selected (0.023 seconds)</span><br></pre></td></tr></table></figure>
+<p>##hive之本地模式</p>
+<blockquote>
+<p>hive的本地模式默认是不开启的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#通过设置参数开启本地模式</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="built_in">set</span> hive.exec.mode.local.auto=<span class="literal">true</span>;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>是否自动开启hive的本地执行模式：就是以进程模拟的形式模拟出一套MR执行的环境<br>是否自动开启的是有条件的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#1.job的输入数据大小必须小于参数：</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#(默认128MB)数据量小</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hive.exec.mode.local.auto.inputbytes.max</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#2.job的map数必须小于参数：</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#(默认4)</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hive.exec.mode.local.auto.tasks.max</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#3.job的reduce数必须为0或者1</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+<p>hive会根据每次任务自动判断是否启用本地模式；如果不满足hive还是跑集群模式（把组装好的mr程序提交给yarn）</p>
+<p>本地模式只是在本地测试为了方便和高效测试而开启的，在生产集群环境上禁止开启</p>
+</blockquote>
+<p>Number of reduce tasks not specified. Estimated from input data size: 1<br>INFO  : In order to change the average load for a reducer (in bytes):<br>INFO  :   set hive.exec.reducers.bytes.per.reducer=<number><br>INFO  : In order to limit the maximum number of reducers:<br>INFO  :   set hive.exec.reducers.max=<number><br>INFO  : In order to set a constant number of reducers:<br>INFO  :   set mapreduce.job.reduces=<number></number></number></number></p>
+<p>0: jdbc:hive2://node01:10000&gt; select * from stu_buck1 sort by(sage);<br>INFO  : Number of reduce tasks not specified. Estimated from input data size: 1<br>INFO  : In order to change the average load for a reducer (in bytes):<br>INFO  :   set hive.exec.reducers.bytes.per.reducer=<number><br>INFO  : In order to limit the maximum number of reducers:<br>INFO  :   set hive.exec.reducers.max=<number><br>INFO  : In order to set a constant number of reducers:<br>INFO  :   set mapreduce.job.reduces=<number><br>INFO  : number of splits:1<br>INFO  : Submitting tokens for job: job_1519711328851_0001<br>INFO  : The url to track the job: <a href="http://node01:8088/proxy/application_1519711328851_0001/" target="_blank" rel="noopener">http://node01:8088/proxy/application_1519711328851_0001/</a><br>INFO  : Starting Job = job_1519711328851_0001, Tracking URL = <a href="http://node01:8088/proxy/application_1519711328851_0001/" target="_blank" rel="noopener">http://node01:8088/proxy/application_1519711328851_0001/</a><br>INFO  : Kill Command = /export/servers/hadoop/bin/hadoop job  -kill job_1519711328851_0001<br>INFO  : Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1<br>INFO  : 2018-02-27 14:03:02,701 Stage-1 map = 0%,  reduce = 0%<br>INFO  : 2018-02-27 14:03:18,322 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.22 sec<br>INFO  : 2018-02-27 14:03:31,264 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.75 sec<br>INFO  : MapReduce Total cumulative CPU time: 4 seconds 750 msec<br>INFO  : Ended Job = job_1519711328851_0001</number></number></number></p>
+<p>create table stu_buck000(Sno int,Sname string,Sex string,Sage int,Sdept string)<br>clustered by(Sno)<br>sorted by(Sno DESC)<br>into 4 buckets<br>row format delimited<br>fields terminated by ‘,’;</p>
+<p>hiveSQL与SQL格式化日期</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--hive SQL</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="keyword">current_timestamp</span>(),<span class="string">'yyyy-MM-dd HH:mm:ss'</span>) <span class="keyword">AS</span> dates</span><br><span class="line"><span class="keyword">FROM</span> dual; </span><br><span class="line"><span class="comment">--2018-02-27 15:25:05</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="keyword">current_timestamp</span>(),<span class="string">'y-MM-d H:m:s'</span>) <span class="keyword">AS</span> dates</span><br><span class="line"><span class="keyword">FROM</span> dual; </span><br><span class="line"><span class="comment">--2018-02-27 15:25:42</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--SQL</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, <span class="keyword">url</span>, <span class="keyword">DATE_FORMAT</span>(<span class="keyword">Now</span>(),<span class="string">'%Y-%m-%d'</span>) <span class="keyword">AS</span> dates</span><br><span class="line"><span class="keyword">FROM</span> Websites; </span><br><span class="line"><span class="comment">--2018-02-27</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+	
+	
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+	
+	
+	
+	<div>
+		
+			
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/12/hive/">hive</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 phoenix 的个人博客">phoenix</a></p>
+  <p><span>发布时间:</span>2018年03月12日 - 06:03</p>
+  <p><span>最后更新:</span>2018年03月12日 - 06:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/12/hive/" title="hive">http://www.bluedreams.top/2018/03/12/hive/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.bluedreams.top/2018/03/12/hive/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+		
+	</div>
+	
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin-icon.png" alt="phoenix 比特币"/>
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bigdata/" rel="tag"><i class="fa fa-tag"></i> bigdata</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/12/term-interpretation/" rel="next" title="术语解释">
+                <i class="fa fa-chevron-left"></i> 术语解释
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/12/spark/" rel="prev" title="Spark性能优化">
+                Spark性能优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/hz-avatar.png"
+                alt="phoenix" />
+            
+              <p class="site-author-name" itemprop="name">phoenix</p>
+              <p class="site-description motion-element" itemprop="description">use my code,change my world</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lusirbluesky" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/" title="掘金" target="_blank">掘金</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.51cto.com/" title="51CTO" target="_blank">51CTO</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.csdn.net/" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://zh.wikipedia.org/wiki/Wikipedia" title="维基百科" target="_blank">维基百科</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yq.aliyun.com/" title="云栖社区" target="_blank">云栖社区</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/" title="知乎" target="_blank">知乎</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.uisdc.com/" title="优设" target="_blank">优设</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zhangxinxu.com/" title="张鑫旭" target="_blank">张鑫旭</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wf.uisdc.com/cn/" title="google前端开发基础" target="_blank">google前端开发基础</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">2.</span> <span class="nav-text">启动</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+	<!--
+    <i class="fa fa-user"></i>
+	-->
+	<i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">phoenix</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+		本站访客数(UV):<span id="busuanzi_value_site_uv"></span>
+	</span>
+	
+	  <span class="post-meta-divider">|</span>
+	
+	<i class="fa fa-eye"></i>
+	<span id="busuanzi_container_site_pv">
+		本站点击量(PV):<span id="busuanzi_value_site_pv"></span>
+	</span>
+	
+	  <span class="post-meta-divider">|</span>
+	
+	<i class="fa fa-pencil"></i>
+	<span class="post-count">博客全站共22.9k字</span>
+  </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("kHJCmLiixRs7kLBKwgzMJ2ro-gzGzoHsz", "UK6t10H9lbjbvq0QeCeoovLV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    var trElement = document.getElementById('hexo-helper-live2d');
+    trElement.parentNode.removeChild(trElement);
+    return;
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/wanko.model.json", 0.5);});
+})();
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

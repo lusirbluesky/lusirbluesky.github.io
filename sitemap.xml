@@ -2,42 +2,105 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lusirbluesky.github.io/2018/01/28/hexo/</loc>
+    <loc>http://www.bluedreams.top/2018/03/12/sparkonyarn/</loc>
     
-    <lastmod>2018-02-06T08:12:33.091Z</lastmod>
+    <lastmod>2018-03-11T23:03:19.136Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lusirbluesky.github.io/about/index.html</loc>
+    <loc>http://www.bluedreams.top/2018/03/12/spark/</loc>
+    
+    <lastmod>2018-03-11T22:54:03.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/03/12/hive/</loc>
+    
+    <lastmod>2018-03-11T22:48:34.559Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/03/12/term-interpretation/</loc>
+    
+    <lastmod>2018-03-11T22:46:12.053Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/03/12/hadoop-hdfs/</loc>
+    
+    <lastmod>2018-03-11T22:44:51.692Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/03/12/hadoop/</loc>
+    
+    <lastmod>2018-03-11T22:44:21.578Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/03/12/distributed-software-install/</loc>
+    
+    <lastmod>2018-03-11T22:42:57.871Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/01/28/hexo/</loc>
+    
+    <lastmod>2018-02-07T01:37:45.773Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/01/28/zookeeper/</loc>
+    
+    <lastmod>2018-02-06T14:57:06.176Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/02/06/tags/</loc>
+    
+    <lastmod>2018-02-06T14:28:51.610Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/2018/02/06/README/</loc>
+    
+    <lastmod>2018-02-06T13:27:06.639Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.bluedreams.top/about/index.html</loc>
     
     <lastmod>2018-02-06T07:12:40.810Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lusirbluesky.github.io/categories/index.html</loc>
+    <loc>http://www.bluedreams.top/categories/index.html</loc>
     
     <lastmod>2018-02-06T06:59:35.949Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lusirbluesky.github.io/2018/01/28/%E5%89%8D%E7%AB%AF/Hexo/hello-world/</loc>
+    <loc>http://www.bluedreams.top/2018/01/28/%E5%89%8D%E7%AB%AF/Hexo/hello-world/</loc>
     
     <lastmod>2018-02-06T06:37:18.878Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lusirbluesky.github.io/2018/01/28/zookeeper/</loc>
-    
-    <lastmod>2018-02-03T13:25:16.096Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lusirbluesky.github.io/2018/01/28/hexo_config.yml/</loc>
+    <loc>http://www.bluedreams.top/2018/01/28/hexo_config.yml/</loc>
     
     <lastmod>2018-01-28T09:29:18.989Z</lastmod>
     

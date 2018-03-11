@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "3be6295f"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="bigdata," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="phoenix's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="#Spark Spark的显著特点 分布式 基于内存（部分基于磁盘） 迭代式计算  ##SparkSQL能取代Hive吗？  不能。Hive包含两部分：计算引擎和存储仓库。SparkSQL只能替换Hive的计算引擎，不能取代Hive。Hive是一个很好的数据仓库。 spark处理的数据来源：HDFS、HBase、Hive、DB、Local FS、S3等 spark处理的数据输出：HDFS、HBas">
+<meta name="keywords" content="bigdata">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark">
+<meta property="og:url" content="http://www.bluedreams.top/2018/03/12/sparkonyarn/index.html">
+<meta property="og:site_name" content="phoenix&#39;s blog">
+<meta property="og:description" content="#Spark Spark的显著特点 分布式 基于内存（部分基于磁盘） 迭代式计算  ##SparkSQL能取代Hive吗？  不能。Hive包含两部分：计算引擎和存储仓库。SparkSQL只能替换Hive的计算引擎，不能取代Hive。Hive是一个很好的数据仓库。 spark处理的数据来源：HDFS、HBase、Hive、DB、Local FS、S3等 spark处理的数据输出：HDFS、HBas">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-11T23:03:19.136Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spark">
+<meta name="twitter:description" content="#Spark Spark的显著特点 分布式 基于内存（部分基于磁盘） 迭代式计算  ##SparkSQL能取代Hive吗？  不能。Hive包含两部分：计算引擎和存储仓库。SparkSQL只能替换Hive的计算引擎，不能取代Hive。Hive是一个很好的数据仓库。 spark处理的数据来源：HDFS、HBase、Hive、DB、Local FS、S3等 spark处理的数据输出：HDFS、HBas">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'strongant'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.bluedreams.top/2018/03/12/sparkonyarn/"/>
+
+
+
+
+
+  <title>Spark | phoenix's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8aec9d5d23a296259b96bdbe88c11656";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+		<!--添加github的丝带-->
+		<a href="https://lusirbluesky.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	</div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">phoenix's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">In the future you will appreciate your desperate effort now</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.bluedreams.top/2018/03/12/sparkonyarn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="phoenix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hz-avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="phoenix's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spark</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T07:00:52+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bigdata/" itemprop="url" rel="index">
+                    <span itemprop="name">bigdata</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/03/12/sparkonyarn/" class="leancloud_visitors" data-flag-title="Spark">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,201
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  20
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#Spark</p>
+<h2 id="Spark的显著特点"><a href="#Spark的显著特点" class="headerlink" title="Spark的显著特点"></a>Spark的显著特点</h2><blockquote>
+<p>分布式</p>
+<p>基于内存（部分基于磁盘）</p>
+<p>迭代式计算</p>
+</blockquote>
+<p>##SparkSQL能取代Hive吗？</p>
+<blockquote>
+<p>不能。Hive包含两部分：计算引擎和存储仓库。SparkSQL只能替换Hive的计算引擎，不能取代Hive。Hive是一个很好的数据仓库。</p>
+<p>spark处理的数据来源：HDFS、HBase、Hive、DB、Local FS、S3等</p>
+<p>spark处理的数据输出：HDFS、HBase、Hive、DB（s3等）、spark客户端（正在处理任务的机器Driver）</p>
+</blockquote>
+<p>##RDD创建的方式</p>
+<blockquote>
+<p>1.外部数据来源（如HDFS）</p>
+<p>2.根据Scala集合</p>
+<p>3.由其他RDD操作（Transformation操作会产生新的RDD，Action操作不会产生新的RDD）</p>
+<p>数据会被RDD划分为一系列的Partitions，分配到每个Partition的数据属于一个Task的处理范畴</p>
+<p>RDD为什么有很多不同的创建方式？</p>
+<p>因为Spark会基于不同的介质进行运算</p>
+</blockquote>
+<p>##Spark弹性分布式数据集RDD</p>
+<blockquote>
+<p>弹性1：    自动进行内存和磁盘的数据存储读取的切换</p>
+<p>弹性2：基于Lineage(血统)的高效容错（计算错误或丢失不会从头开始，第n个节点出错，会从第n-1个节点开始计算，极大提高了错误的恢复的速度）</p>
+<p>弹性3：Task如果失败会自动进行特定次数的重试（默认4次）（只计算失败的阶段）</p>
+<p>弹性4：Stage如果失败会自动进行特定次数的重试（默认3次）（只计算失败的分片）</p>
+<p>弹性5：设置持久化和检查点（persistent和checkpoint，计算链条比较长或者计算比较笨重，考虑用checkpoint将数据都放在磁盘上，persist是在内存或磁盘进行数据复用。这是效率和容错的延伸点）</p>
+<p>弹性6：数据调度弹性：DAGTask和资源管理无关</p>
+<p>弹性7：数据分片的高度弹性（在计算过程中可能会产生很多数据碎片，这样一个partition会特别小，这么小的partition也要消耗一个线程去处理会降低处理效率，这时要考虑将很多小的partition合并成一个大的partition进行处理以提升效率；另外，如果内存不太多，但是每个partition特别大，数据block比较大，要考虑把他变成更小的分片这样让spark有更多的处理批次但是不会有OOM。数据分片提高并行度或降低并行度的弹性表现，而且数据处理的时候完全有数据本地性，并行度设置要人工处理。100w的数据分片变成1w个，不要调用repartition，要使用coalesce）</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;    * Return a new RDD that has exactly numPartitions partitions.</span></span><br><span class="line"><span class="comment">&gt;    *</span></span><br><span class="line"><span class="comment">&gt;    * Can increase or decrease the level of parallelism in this RDD. Internally, this uses</span></span><br><span class="line"><span class="comment">&gt;    * a shuffle to redistribute data.</span></span><br><span class="line"><span class="comment">&gt;    *</span></span><br><span class="line"><span class="comment">&gt;    * If you are decreasing the number of partitions in this RDD, consider using `coalesce`,</span></span><br><span class="line"><span class="comment">&gt;    * which can avoid performing a shuffle.</span></span><br><span class="line"><span class="comment">&gt;    */</span></span><br><span class="line">&gt;   <span class="function"><span class="keyword">def</span> <span class="title">repartition</span></span>(numPartitions: <span class="type">Int</span>)(<span class="keyword">implicit</span> ord: <span class="type">Ordering</span>[<span class="type">T</span>] = <span class="literal">null</span>): <span class="type">RDD</span>[<span class="type">T</span>] = withScope &#123;</span><br><span class="line">&gt;     coalesce(numPartitions, shuffle = <span class="literal">true</span>)</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt;    * Return a new RDD that is reduced into `numPartitions` partitions.</span></span><br><span class="line"><span class="comment">&gt;    *</span></span><br><span class="line"><span class="comment">&gt;    * This results in a narrow dependency, e.g. if you go from 1000 partitions</span></span><br><span class="line"><span class="comment">&gt;    * to 100 partitions, there will not be a shuffle, instead each of the 100</span></span><br><span class="line"><span class="comment">&gt;    * new partitions will claim 10 of the current partitions.</span></span><br><span class="line"><span class="comment">&gt;    *</span></span><br><span class="line"><span class="comment">&gt;    * However, if you're doing a drastic coalesce, e.g. to numPartitions = 1,</span></span><br><span class="line"><span class="comment">&gt;    * this may result in your computation taking place on fewer nodes than</span></span><br><span class="line"><span class="comment">&gt;    * you like (e.g. one node in the case of numPartitions = 1). To avoid this,</span></span><br><span class="line"><span class="comment">&gt;    * you can pass shuffle = true. This will add a shuffle step, but means the</span></span><br><span class="line"><span class="comment">&gt;    * current upstream partitions will be executed in parallel (per whatever</span></span><br><span class="line"><span class="comment">&gt;    * the current partitioning is).</span></span><br><span class="line"><span class="comment">&gt;    *</span></span><br><span class="line"><span class="comment">&gt;    * <span class="doctag">Note:</span> With shuffle = true, you can actually coalesce to a larger number</span></span><br><span class="line"><span class="comment">&gt;    * of partitions. This is useful if you have a small number of partitions,</span></span><br><span class="line"><span class="comment">&gt;    * say 100, potentially with a few partitions being abnormally large. Calling</span></span><br><span class="line"><span class="comment">&gt;    * coalesce(1000, shuffle = true) will result in 1000 partitions with the</span></span><br><span class="line"><span class="comment">&gt;    * data distributed using a hash partitioner.</span></span><br><span class="line"><span class="comment">&gt;    */</span></span><br><span class="line">&gt;   <span class="function"><span class="keyword">def</span> <span class="title">coalesce</span></span>(numPartitions: <span class="type">Int</span>, shuffle: <span class="type">Boolean</span> = <span class="literal">false</span>,</span><br><span class="line">&gt;                partitionCoalescer: <span class="type">Option</span>[<span class="type">PartitionCoalescer</span>] = <span class="type">Option</span>.empty)</span><br><span class="line">&gt;               (<span class="keyword">implicit</span> ord: <span class="type">Ordering</span>[<span class="type">T</span>] = <span class="literal">null</span>)</span><br><span class="line">&gt;       : <span class="type">RDD</span>[<span class="type">T</span>] = withScope &#123;</span><br><span class="line">&gt;       <span class="comment">///////////</span></span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>（task重试失败，整个计算阶段stage就会失败，计算阶段有很多并行的数据分片，这些分片的计算逻辑相同但是处理的数据不同，会再次提交stage只把失败的任务提交，已经成功的任务不会再次提交（这些成功的任务已经有结果输出，如果没有结果还是也会被提交））</p>
+</blockquote>
+<p>spark的中间数据可以在内存也可在磁盘，不一定全部在内存</p>
+<p>RDD在抽象上表示了元素的集合，内部包含数据，数据本身分区，在不同的节点上可以被并行操作，所以叫分布式数据集。最常用的sparkRDD的数据来源hadoop上，spark+hadoop黄金组合。</p>
+<p>在开发或测试时，要启动<strong>start-history-server.sh</strong>，他会记录程序运行的信息，这样在session会话结束后还可以看曾经运行的程序的情况。可以在浏览器通过spark的地址+18080端口查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master spark://node01:7077</span><br></pre></td></tr></table></figure>
+<p>RDD通过spark context创建</p>
+<p>spark context是集群的唯一的接口，你做一切工作都要基于spark context</p>
+<p>spark的一切操作皆RDD</p>
+<p>RDD可以从HDFS或者Hive表中获取数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">手动指定集群地址</span></span><br><span class="line">sc.textFile('hdfs://node01:9000/input')；</span><br><span class="line"><span class="meta">#</span><span class="bash">根据上下文自动获取集群地址</span></span><br><span class="line">val data = sc.textFile('/input')；</span><br><span class="line">data.toDebugString</span><br><span class="line"><span class="meta">#</span><span class="bash">Transformation算子（没有结果，lazy）-textFile</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Action算子(给出结果，hungry)-count</span></span><br><span class="line">data.count</span><br><span class="line"><span class="meta">#</span><span class="bash">spark界面的Tasks中的Locality_Level显示</span></span><br><span class="line"><span class="meta">#</span><span class="bash">NODE_LOCAL表示在磁盘</span></span><br><span class="line"><span class="meta">#</span><span class="bash">PROCESS_LOCAL表示在内存</span></span><br><span class="line"><span class="meta">#</span><span class="bash">ANY表示shuffle过的数据</span></span><br><span class="line"><span class="meta">#</span><span class="bash">计算不复杂的，数据大部分在磁盘上，对于迭代操作默认放在内存</span></span><br><span class="line">val flatted=data.flatMap(_.split(" "))</span><br><span class="line"><span class="meta">#</span><span class="bash">通过执行下面的语句，发现RDD是有依赖关系的</span></span><br><span class="line">flatted.toDebugString</span><br><span class="line">val mapped = flatted.map(word=&gt;(word,1))</span><br><span class="line">mapped.toDebufString</span><br><span class="line">val reduced = mapped.reduceByKey(_+_)</span><br><span class="line">reduced.toDebugString</span><br><span class="line">reduced.saveAsTextFile("/output/data")</span><br></pre></td></tr></table></figure>
+<p>##SparkContext的作用？</p>
+<blockquote>
+<p>初始化spark应用程序运行所需要的核心组件，包括DAGScheduler、TaskScheduler、SchedulerBackend；同时还会负责spark程序往Master注册程序等。SparkContext是spark应用程序中最为重要的一个对象。</p>
+<p>DAGScheduler：高层调度器，划分任务的不同阶段</p>
+<p>TaskScheduler:接口，根据不同的资源调度模式</p>
+<p>资源调度模式：local模式，standalone模式，yarn模式，mesos模式，ec2模式（云计算）</p>
+</blockquote>
+<p>RDD本身是泛型，是一系列的数据分片，每个分片是具体类型String或其他</p>
+<figure class="highlight plain"><figcaption><span>data:RDD[String] </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">##spark的每个步骤是不是都要做缓存？</span><br><span class="line"></span><br><span class="line">&gt; 不是每个步骤都会缓存，否则内存损耗太严重，这就和hadoop的mapreduce差不多了。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 需要做缓存的情况：</span><br><span class="line">&gt;</span><br><span class="line">&gt; 1.计算步骤特别耗时</span><br><span class="line">&gt;</span><br><span class="line">&gt; 2.计算链条很长</span><br><span class="line">&gt;</span><br><span class="line">&gt; 3.shuffle之后</span><br><span class="line">&gt;</span><br><span class="line">&gt; （shuffle是从其他阶段拉数据，这时缓存，就不要重新shuffle）</span><br><span class="line">&gt;</span><br><span class="line">&gt; 4.checkpoint之前</span><br><span class="line"></span><br><span class="line">spark on yarn时，container是一个线程池</span><br><span class="line"></span><br><span class="line">一个操作可能产生一个RDD也可能产生多个RDD，如：textFile()产生了两个RDD（HadoopRDD和MapPartitionsRDD）</span><br><span class="line"></span><br><span class="line">HadoopRDD有key-行索引，value-行的内容</span><br><span class="line"></span><br><span class="line">MapPartitionsRDD没有key，只有value</span><br><span class="line"></span><br><span class="line">reduceByKey产生了两个RDD（MapPartitionsRDD和ShuffledRDD）</span><br><span class="line"></span><br><span class="line">##Spark的partition数量怎么确定？什么时候需要repartition？</span><br><span class="line"></span><br><span class="line">&gt; 根据实际运行的状况设定，根据Core的个数，CPU的个数，集群的资源等。</span><br><span class="line">&gt;</span><br><span class="line">&gt; 需要repartition:</span><br><span class="line">&gt;</span><br><span class="line">&gt; - 数据碎片太多（要把多个碎片合并）</span><br><span class="line">&gt; - 要增加分片数量（OOM，内存不够）</span><br><span class="line"></span><br><span class="line">##ShuffledRDD之后还有一个MapPartitionsRDD，从保存数据到HDFS的角度讲MapPartitionsRDD？</span><br><span class="line"></span><br><span class="line">spark在计算的时候，把key暂时丢掉了，最后存储到HDFS上，要按照saveAsHadoopFile的要求的格式，将key补上，key不是偏移量，为什么需要它，因为hadoop需要</span><br><span class="line"></span><br><span class="line">```scala</span><br><span class="line">def saveAsTextFile(path:String)&#123;</span><br><span class="line">this.map(x=&gt;(NullWritable.get(),new Text(x.toString))</span><br><span class="line">    .saveAsHadoopFile[TextOutputFormat[NullWritable, Text]](path)</span><br><span class="line">&#125;</span><br><span class="line">///////////////////</span><br><span class="line">val r = this.mapPartitions &#123; iter =&gt;</span><br><span class="line">      val text = new Text()</span><br><span class="line">      iter.map &#123; x =&gt;</span><br><span class="line">        text.set(x.toString)</span><br><span class="line">        (NullWritable.get(), text)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    RDD.rddToPairRDDFunctions(r)(nullWritableClassTag, textClassTag, null)</span><br><span class="line">      .saveAsHadoopFile[TextOutputFormat[NullWritable, Text]](path)</span><br></pre></td></tr></table></figure>
+<p>##wordcount的第一个Stage和第二个Stage产生了哪些RDD？</p>
+<blockquote>
+<p>stage1:</p>
+<p>HadoopRDD</p>
+<p>MapPartitionsRDD</p>
+<p>MapPartitionsRDD</p>
+<p>MapPartitionsRDD</p>
+<p>stage2:</p>
+<p>ShuffledRDD</p>
+<p>MapPartitionsRDD</p>
+</blockquote>
+<p>reduceByKey包含local reduce和global reduce两个部分</p>
+<p>spark中master和worker管理的资源主要指内存和CPU</p>
+<p>spark的active状态的master指：现在正在管理集群并接受外界程序的程序提交请求和资源分配请求的master</p>
+<p>standby模式的master随时准备在active模式master挂掉后代替它管理系群</p>
+<p>active模式的master挂掉后zookeeper自动切换</p>
+<p>spark的HA可以是两台spark也可以是多台</p>
+<p>##zookeeper中的元数据信息包括哪些内容？</p>
+<blockquote>
+<p>所有worker、driver、application的元数据</p>
+</blockquote>
+<p>##spark中的资源分配粒度？</p>
+<blockquote>
+<p>粗粒度：一次性分配任务所需的全部资源</p>
+<p>细粒度：分配一部分，用完重新申请</p>
+<p>一般的是粗粒度</p>
+</blockquote>
+<p>Spark中资源的分配是在程序注册时完成的，不是在具体的工作过程中申请分配的。</p>
+<p>注册完成后资源被谁管理（standalone模式）：CoarseGrainedSchedulerBackend的子类SparkDeploySchedulerBackend</p>
+<p>driver到master注册并初始化</p>
+<p>Spark的角色？</p>
+<blockquote>
+<p>master</p>
+<p>worker</p>
+<p>driver：驱动程序的运行</p>
+<p>executor：具体运行任务，计算数据</p>
+</blockquote>
+<p>一个应用程序默认有一个DAGScheduler</p>
+<p>一个worker节点默认为当前应用程序开启一个executor</p>
+<p>worker管理executor</p>
+<p>worker管理当前node的资源并接受master的指令来分配具体的计算资源executor（在新的进程中分配）</p>
+<p>ExecutorRunner相当于一个proxy，管理新分配的进程并监控该executor分配的进程的运行状况</p>
+<p>worker会向master发送心跳信息（只有workerid），但不会向master汇报当前节点内存和CPU的信息。</p>
+<p>master怎么知道worker节点的资源信息？</p>
+<p>应用程序在master上注册时，注册成功就会分配资源，分配的时候就记住了worker的资源状况，所有资源都是master分配的。</p>
+<p>job是包含了一系列task的并行计算，在spark中一般由action触发，触发的时候前面会有一系列的RDD，action不会产生RDD，它会导致runjob。action前面的RDD是transaction级别的，lazy级别，没有计算。</p>
+<p>spark的快不是因为基于内存，当前RDD回溯到前一个RDD（如果是窄依赖在内存中进行迭代，这是spark快的一个重要的原因，但spark快绝对不是因为基于内存），速度快有很多原因，最基本的是调度机制和容错机制。</p>
+<p>窄依赖除了一对一的依赖还有range级别的依赖固定个数的父RDD的partition，依赖的固定个数不会随着计算规模的大小而改变，DAG就会变成宽依赖（依赖构成了DAG），如果是宽依赖DAGSchedule就会帮我们划分Stage，Stage内部是基于内存迭代的，也可以基于磁盘迭代。</p>
+<p>Stage内部：计算逻辑完全一样，只是计算的数据不同罢了。</p>
+<p>一个Application里面可以有多个不同的job，因为可以有不同的action，而一般一个action操作就会对应一个job。checkpoint也会导致job，在进行排序算法的时候进行range范围的划分也会触发job</p>
+<p>##为什么不能再IDE集成开发环境中直接发布Spark程序到Spark集群？</p>
+<blockquote>
+<p>1.内存和cores的限制，默认spark程序的driver会在提交spark程序的机器上，所以如果在IDE中提交程序的话，那IDE机器必须非常强大</p>
+<p>2.driver要指挥workers的运行并频繁的发生通信，如果开发环境IDE与spark集群不在同样的网络环境，就会出现任务丢失、运行缓慢等多种不必要的问题</p>
+<p>3.这是不安全的</p>
+</blockquote>
+<p>##spark的底层是akka，为啥spark1.6.x内部实现通过rpc？</p>
+<p> 以后可能不用akka了</p>
+<p>现在是做了一层封装</p>
+<p>spark2.0底层改用了netty</p>
+<p>driver能像master一样做HA吗？</p>
+<blockquote>
+<p>client模式不行</p>
+<p>cluster模式下，–spark-submit提交参数可指定–supervise后，如果driver挂掉后集群会自动帮你启动driver</p>
+</blockquote>
+<p>##spark怎么知道分配多少资源？</p>
+<blockquote>
+<p>1.spark-env.sh和spark-default.sh</p>
+<p>2.spark-submit提供的参数</p>
+<p>3.程序中的sparkConf配置的参数</p>
+</blockquote>
+<p>RDD：基于工作集的应用抽象</p>
+<p>hadoop的mapreduce是基于数据集的处理</p>
+<p>不论是基于工作集还是数据集，他们的共同特征：数据感知，容错，负载均衡</p>
+<blockquote>
+<p>基于数据集的处理（代表是hadoop得到mapreduce）：</p>
+<p>1.从物理存储设备加载数据</p>
+<p>2.操作数据</p>
+<p>3.写入物理设备</p>
+<p>（spark的调度框架也是基于hadoop的mapreduce的一种实现，只是更细致，更高效）</p>
+<p>不适合的场景：</p>
+<ul>
+<li><p>不适合大量迭代（迭代就是每一步对数据进行相似的函数，机器学习或处理数据算法比较复杂）</p>
+</li>
+<li><p>不适合交互式查询（每次查询都要从磁盘读取数据，处理，写入磁盘）</p>
+</li>
+<li><p>致命点：基于数据流的方式不能复用曾经的结果或者中间计算结果</p>
+<blockquote>
+<p>比如：1000个人对数据仓库进行并发查询，</p>
+<p>查询完全一样，每次都要重新查询</p>
+<p>查询中前10个步骤一样，后面几个步骤不同</p>
+</blockquote>
+</li>
+</ul>
+<p>spark的RDD是基于工作集</p>
+<p>RDD（Resilient Distribute Dataset）：上面总结五点弹性</p>
+<p>RDD就是一个List或者Array</p>
+<p>RDD是分布式函数式编程的抽象（基于RDD的编程一般都会产生高阶函数，简单的可能不会产生）</p>
+<p>每步操作都是基于RDD操作，RDD又是只读分区的集合，但是每步操作都会改变数据（map,reduceBykey…），这时产生中间结果怎么办？不能立即计算，lazy级别，只标记不计算。最后action算子操作（回溯）触发所有链条函数执行，函数展开，计算结果。</p>
+<p><strong>spark比hadoop的位置感知好很多，hadoop进行partitioner之后就不管reducer在哪里了，但是spark进行partitioner，进行下一步stage操作时会确定位置</strong></p>
+</blockquote>
+<p>spark streaming用到窗口机制，为什么要checkpoint？</p>
+<p>checkpoint要将数据或结果保存到磁盘上</p>
+<p>因为要经常用到以前的东西</p>
+<p>如果一个stage有1000个步骤，spark不会产生999次中间结果，默认只会产生一次中间结果，hadoop的mapreduce会产生999次中间结果。</p>
+<blockquote>
+<p>每步操作都是基于RDD操作，RDD又是只读分区的集合，但是每步操作都会改变数据（map,reduceBykey…），这时产生中间结果怎么办？不能立即计算，lazy级别，只标记不计算。</p>
+</blockquote>
+<p>数据量越大，计算步骤越多，spark的优势越明显。</p>
+<p>spark1.3版本里程碑，dataframe的革命</p>
+<p>spark1.2.x版本前，由于shuffle问题，spark不适合大规模计算，有规模限制，但是之后任意规模，可以自定义shuffle插件</p>
+<p>常规容错的方式：数据检查点（每次拷贝跨网络传输，消耗存储）和记录数据更新操作（每次数据变化都记录，复杂，难处理重新计算）</p>
+<p>##Spark的容错：通过RDD记录数据更新的方式为何高效？</p>
+<blockquote>
+<p>1.RDD不可变+Lazy级别构成了链条</p>
+<p>2.RDD的写操作是粗粒度（提高效率，简化复杂度），RDD的读操作可粗粒度可细粒度（RDD的大多数场景都是粗粒度）</p>
+</blockquote>
+<p>从第900步恢复的前提是要在第900步持久化？</p>
+<p>第900步是上一个stage的结束或者第900步进行了checkpoint/persist持久化。（stage结束会写入磁盘）</p>
+<p>没有中间结果不需要进行维护</p>
+<p>RDD的数据分片上的一系列的计算逻辑都是一样的</p>
+<p>Tachyon解决南北（不同）数据中心数据不同步问题</p>
+<p>Spark的所有子框架都是基于RDD的</p>
+<p>spark要做一体化多元化的通用数据处理框架，兼容一切操作系统，文件格式，数据库</p>
+<p>spark不能处理的问题：实时事务性处理</p>
+<p>spark要统一数据计算领域，除了实时事务性处理</p>
+<p>##RDD的缺陷</p>
+<blockquote>
+<p>不支持细粒度的更新操作</p>
+<p>不支持增量迭代计算</p>
+</blockquote>
+<p>##RDD为什么有很多不同的创建方式？</p>
+<p>因为Spark会基于不同的介质进行运算</p>
+<p>##Spark和Hadoop有关系吗？</p>
+<p>没有。Spark运行在Hadoop之上，hadoop作为spark的数据存储来源的时候有关系。</p>
+<p>##RDD的创建方式</p>
+<blockquote>
+<p>三种最基本的方式创建：</p>
+<p>1.使用程序中的集合创建RDD</p>
+<p>2.使用本地文件系统创建RDD</p>
+<p>3.使用HDFS创建RDD</p>
+<p>其他创建方式：</p>
+<p>4.基于DB创建RDD</p>
+<p>5.基于NoSQL，如HBase</p>
+<p>6.基于S3创建</p>
+<p>7.基于数据流创建RDD（如spark streaming）</p>
+<p>通过集合创建RDD的实际意义？</p>
+<blockquote>
+<p>测试</p>
+</blockquote>
+<p>使用本地文件系统创建RDD的作用？</p>
+<blockquote>
+<p>测试大量数据文件</p>
+</blockquote>
+<p>使用HDFS创建RDD？</p>
+<blockquote>
+<p>生产环境最常用的RDD创建方式</p>
+</blockquote>
+</blockquote>
+<p>##Spark最佳实践</p>
+<blockquote>
+<p>并行度设置</p>
+<p>单个core可以承载2-4个partition（32core可以承载64-128partition）</p>
+<blockquote>
+<p>任务的数据量大小及复杂程度涉及到内存和CPU</p>
+</blockquote>
+</blockquote>
+<p>##RDD的操作有几种？</p>
+<blockquote>
+<p>三种。</p>
+<p>transformation</p>
+<p>针对已有的RDD创建一个新的RDD</p>
+<p>action</p>
+<p>得到最终结果</p>
+<p>controller</p>
+<ul>
+<li>控制算子</li>
+<li>cache，persist，checkpoint（cache是一种特殊的persist）</li>
+</ul>
+</blockquote>
+<p>##谈谈Shuffle</p>
+<blockquote>
+<p><strong>什么是shuffle？</strong></p>
+<p>洗牌，需要shuffle的关键原因是：某种需要共同特征的数据需要最终汇聚到 一个计算节点上进行计算。</p>
+<p><strong>什么时候会产生shuffle？</strong></p>
+<p>运行task的时候才会产生shuffle（shuffle已经融合在spark的算子中了）</p>
+<p><strong>shuffle可能面临的问题？</strong></p>
+<p>1.数据量非常大（网络传输）</p>
+<p>2.数据如何分类，即如何partition</p>
+<p>分为hash partition，sort partition和钨丝计划</p>
+<p>3.负载均衡（数据倾斜）</p>
+<p>4.网络传输效率，需要在压缩与解压缩之间权衡，序列化和反序列化</p>
+<p><strong>说明：</strong>具体的task进行计算的时候，尽一切可能使数据具备process locality的特性；退而求其次，增加数据分片，减少每个task处理的数据量</p>
+<ul>
+<li>persist或cache的价值不如出错后重新在内存算一遍（cache的风险OOM或空间被别人占用）</li>
+<li>内存中重新计算比将结果持久化到磁盘然后从磁盘读结果可能更快</li>
+<li>读磁盘IO是高风险的，读内存风险降低很多</li>
+<li>一般不持久化中间结果，数据丢失重新计算依赖的RDD，在一个Stage内部鼓励这样做</li>
+<li>如果产生shuffle，会进行网络通信，这时肯定要持久化，一般持久化到磁盘，也可以持久化的内存等</li>
+</ul>
+<p><strong>hash shuffle</strong></p>
+<p>1.key不能是Array(如果是array，不能友好的计算hashcode)</p>
+<p>2.hash shuffle不需要排序（理论上速度快，性能好），此时从理论上讲节省了hadoop mapreduce进行shuffle排序的时间浪费，因为实际生产环境有大量不需要排序的shuffle</p>
+<p>思考：不需要排序的hash shuffle一定比需要排序的sorted shuffle速度快？</p>
+<blockquote>
+<p>不一定。</p>
+<p>数据规模小时，hash shuffle会比sorted shuffle快（很多）</p>
+<p>数据量大时，sorted shuffle一般都会比hash shuffle快（很多）</p>
+<p>因为hash方式会有key，句柄，有一些小文件等，磁盘和内存会变成瓶颈。sorted会极大的节省内存和对磁盘的访问，更有利于大规模的数据计算。</p>
+</blockquote>
+<p>3.除了最后一个stage里面的任务是result task，其他前面的都是shuffle map task。每个shufflemaptask会根据key的hash值计算出当前的key需要的partition，然后把决定后的结果写入单独的文件。。。。。。。。。</p>
+<p>注意：shuffle操作绝大多数情况下要经过网络，如果mapper和reducer在同一台机器上，此时只需读取本地磁盘。</p>
+<p>hash shuffle的两大死穴：</p>
+<ul>
+<li>shuffle前会在磁盘上产生海量的小文件，此时会产生大量耗时低效的IO操作；</li>
+<li>内存不共用！由于内存中需要保存海量文件操作句柄和临时缓存信息，如果数据处理规模比较庞大的话，内存不可承受，出现OOM等问题。</li>
+</ul>
+<p>为了改善上述问题（同时打开过多文件导致Write Handler内存使用过大以及产生过度文件导致大量随机读写带来的低效磁盘IO），spark推出了consalidate机制，合并小文件。此时shuffle时产生的文件的数量为<strong>cores*R</strong>，对于shuffle map task的数量明显多于同时可用的并行cores的数量时，shuffle产生的文件数量会大幅度减少，会极大降低OOM可能</p>
+<p><strong>为什么使用sort-based shuffle？</strong></p>
+<p>1.shuffle一般包含两阶段的任务，产生shuffle数据的阶段（map阶段）和使用shuffle数据的阶段 （reduce阶段）</p>
+<p><strong>sort-based shuffle</strong></p>
+<p>归并排序</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+	
+	
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+	
+	
+	
+	<div>
+		
+			
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/12/sparkonyarn/">Spark</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 phoenix 的个人博客">phoenix</a></p>
+  <p><span>发布时间:</span>2018年03月12日 - 07:03</p>
+  <p><span>最后更新:</span>2018年03月12日 - 07:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/12/sparkonyarn/" title="Spark">http://www.bluedreams.top/2018/03/12/sparkonyarn/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.bluedreams.top/2018/03/12/sparkonyarn/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+		
+	</div>
+	
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin-icon.png" alt="phoenix 比特币"/>
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bigdata/" rel="tag"><i class="fa fa-tag"></i> bigdata</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/12/spark/" rel="next" title="Spark性能优化">
+                <i class="fa fa-chevron-left"></i> Spark性能优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/hz-avatar.png"
+                alt="phoenix" />
+            
+              <p class="site-author-name" itemprop="name">phoenix</p>
+              <p class="site-description motion-element" itemprop="description">use my code,change my world</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lusirbluesky" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://juejin.im/" title="掘金" target="_blank">掘金</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.51cto.com/" title="51CTO" target="_blank">51CTO</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.csdn.net/" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://zh.wikipedia.org/wiki/Wikipedia" title="维基百科" target="_blank">维基百科</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yq.aliyun.com/" title="云栖社区" target="_blank">云栖社区</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/" title="知乎" target="_blank">知乎</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.uisdc.com/" title="优设" target="_blank">优设</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zhangxinxu.com/" title="张鑫旭" target="_blank">张鑫旭</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wf.uisdc.com/cn/" title="google前端开发基础" target="_blank">google前端开发基础</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark的显著特点"><span class="nav-number">1.</span> <span class="nav-text">Spark的显著特点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+	<!--
+    <i class="fa fa-user"></i>
+	-->
+	<i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">phoenix</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by">
+	<i class="fa fa-user-md"></i>
+	<span id="busuanzi_container_site_uv">
+		本站访客数(UV):<span id="busuanzi_value_site_uv"></span>
+	</span>
+	
+	  <span class="post-meta-divider">|</span>
+	
+	<i class="fa fa-eye"></i>
+	<span id="busuanzi_container_site_pv">
+		本站点击量(PV):<span id="busuanzi_value_site_pv"></span>
+	</span>
+	
+	  <span class="post-meta-divider">|</span>
+	
+	<i class="fa fa-pencil"></i>
+	<span class="post-count">博客全站共22.9k字</span>
+  </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("kHJCmLiixRs7kLBKwgzMJ2ro-gzGzoHsz", "UK6t10H9lbjbvq0QeCeoovLV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    var trElement = document.getElementById('hexo-helper-live2d');
+    trElement.parentNode.removeChild(trElement);
+    return;
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/wanko.model.json", 0.5);});
+})();
+</script>
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
